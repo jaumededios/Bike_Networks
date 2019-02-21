@@ -50,11 +50,13 @@ def Matrix_plot(data, names, bg_colors = None,params = {}, ylim = None, x_values
     for row in zip(data,data_t,axis,bg_colors):
         for curve, curve_t, a, bgcolor in zip(*row):
 
-            a.fill_between(x_values,0,curve,facecolor='black', color='black')
-            a.fill_between(x_values,-curve_t,0,facecolor='black', color='black')
+            a.fill_between(x_values,0,   curve, color='k', 
+                          linewidth=0,edgecolor='green')
+            a.fill_between(x_values,-curve_t,0, color='k', 
+                          linewidth=0,edgecolor='green')
+            
+            a.plot(x_values, [0]*len(x_values), linewidth=.5, c='k')
 
-            a.plot(x_values,curve, color='white')
-            a.plot(x_values,-curve_t, color='white')
 
             a.set_xlim(xlim)
             a.set_ylim(ylim)
